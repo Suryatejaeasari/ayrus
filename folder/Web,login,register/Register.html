@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="number"]{
+            width: 90%;
+            padding: 10px;
+            margin: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .area{
+            width: 90%;
+            padding: 10px;
+            margin: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .Lan{
+            width: 90%;
+            padding: 10px;
+            margin: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="password"]{
+            width: 90%;
+            padding: 10px;
+            margin: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Register</h2>
+    <form >
+        <div>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+        </div>
+        <div>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label for="about">Language:</label>
+            <select class="Lan">
+
+                <option value="">Select Language</option>
+                <option value="English">English</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Hindi">Hindi</option>
+            </select>
+        <div>
+        <div>
+            <label for="no">Zip code:</label>
+            <input type="number" id="no" name="no" required>
+        </div>
+        <div>
+            <label for="about">About</label>
+            <textarea class="area"></textarea>
+        <div>
+            <input type="submit" value="Register">
+        </div>
+</body>
+</html>

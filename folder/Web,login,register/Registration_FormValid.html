@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- Adding Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="bg-light d-flex align-items-center" style="min-height: 100vh;">
+    <div class="container col-lg-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Registration Form</h2>
+                <form name="registrationForm" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <label for="fname">Full Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Your full name.." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rollno">Roll No</label>
+                        <input type="text" class="form-control" id="rollno" name="rollno" placeholder="Your roll number.." maxlength="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="Your age.." min="0" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone No.</label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Your phone number.." maxlength="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your email.." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea class="form-control" id="address" name="address" placeholder="Your address.." rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+                <div id="output" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adding Bootstrap and jQuery scripts -->
+
+    <script>
+        function displayOutput() {
+            var name = document.forms["registrationForm"]["fname"].value;
+            var rollno = document.forms["registrationForm"]["rollno"].value;
+            var age = document.forms["registrationForm"]["age"].value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var phone = document.forms["registrationForm"]["phone"].value;
+            var email = document.forms["registrationForm"]["email"].value;
+            var address = document.forms["registrationForm"]["address"].value;
+
+            var outputString = 'Full Name: ' + name + '\n' +
+                'Roll No: ' + rollno + '\n' +
+                'Age: ' + age + '\n' +
+                'Gender: ' + gender + '\n' +
+                'Phone No: ' + phone + '\n' +
+                'Email: ' + email + '\n' +
+                'Address: ' + address;
+
+            alert(outputString);
+        }
+
+        function validateForm() {
+            var name = document.forms["registrationForm"]["fname"].value;
+            var age = document.forms["registrationForm"]["age"].value;
+            var rollno = document.forms["registrationForm"]["rollno"].value;
+            var phone = document.forms["registrationForm"]["phone"].value;
+            var address = document.forms["registrationForm"]["address"].value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var email = document.forms["registrationForm"]["email"].value;
+
+            if (name.length > 20) {
+                alert("Name must be less than 20 characters long.");
+                return false;
+            }
+
+            if (age < 0 || age > 100) {
+                alert("Age must be between 0 and 100.");
+                return false;
+            }
+
+            if (rollno.length !== 10) {
+                alert("Roll No must be 10 characters long.");
+                return false;
+            }
+
+            if (phone.length !== 10) {
+                alert("Phone No must be 10 characters long.");
+                return false;
+            }
+
+            if (address.length === 0) {
+                alert("Address is required.");
+                return false;
+            }
+
+            if (!emailIsValid(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            displayOutput();
+            return true;
+        }
+
+        function emailIsValid(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+    </script>
+</body>
+
+</html>

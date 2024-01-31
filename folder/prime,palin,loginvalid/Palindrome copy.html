@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Number & Palindrome Checker</title>
+    <script>
+        function findPrimes() {
+            const n = parseInt(document.getElementById('inputNumber').value);
+            const primes = [];
+
+            // Function to check if a number is prime
+            function isPrime(num) {
+                for (let i = 2; i < num; i++) {
+                    if (num % i === 0) {
+                        return false;
+                    }
+                }
+                return num > 1;
+            }
+
+            // Find prime numbers within the range
+            for (let i = 2; i <= n; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+
+            // Display prime numbers in alert
+            let alertMessage = 'Prime Numbers from 2 to ' + n + ':\n';
+            if (primes.length > 0) {
+                alertMessage += primes.join(', ');
+            } else {
+                alertMessage += 'No prime numbers found in the range.';
+            }
+            alert(alertMessage);
+        }
+
+        function checkPalindrome() {
+            const number = document.getElementById('inputPalindrome').value;
+
+            // Function to check if a number is a palindrome
+            function isPalindrome(num) {
+                const strNum = num.toString();
+                const length = strNum.length;
+
+                for (let i = 0; i < Math.floor(length / 2); i++) {
+                    if (strNum[i] !== strNum[length - 1 - i]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            // Check if the entered number is a palindrome
+            if (isPalindrome(number)) {
+                alert(number + ' is a palindrome!');
+            } else {
+                alert(number + ' is not a palindrome!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Prime Number & Palindrome Checker</h1>
+
+    <h2>Prime Number Finder</h2>
+    <p>Enter a number 'n' to find prime numbers within the range from 2 to 'n':</p>
+    <input type="number" id="inputNumber" placeholder="Enter a number">
+    <button onclick="findPrimes()">Find Primes</button>
+
+    <hr>
+
+    <h2>Palindrome Checker</h2>
+    <p>Enter a number to check if it's a palindrome:</p>
+    <input type="number" id="inputPalindrome" placeholder="Enter a number">
+    <button onclick="checkPalindrome()">Check Palindrome</button>
+</body>
+</html>
