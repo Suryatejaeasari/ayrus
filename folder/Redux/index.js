@@ -58,3 +58,17 @@ unsubscribe();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+//app.js
+//import React from 'react';
+
+//function App() {
+//  return (
+//    <div>
+//      <h1>Redux Example</h1>
+ //     {/* Display some UI */}
+ //   </div>
+ // );
+//}
+
+//export default App;
